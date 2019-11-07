@@ -3,7 +3,6 @@ const port = process.env.PORT || 5000;
 
 const server = http.createServer((req, res) => {
   console.log(req.headers['user-agent']);
-  console.log(req.headers);
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
   res.end('Hello World\n');
