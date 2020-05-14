@@ -6,19 +6,19 @@ const server = http.createServer((req, res) => {
     
   res.statusCode = 200;
   
-  if (userAgent.indexOf('facebookexternalhit/1.1') >= 0) {
-    res.setHeader('Content-Type', 'text/html');
-    res.end(`
+  res.setHeader('Content-Type', 'text/html');
+  res.end(`
       <html>
         <head>
-          <meta property="al:android:url" content="https://www.google.com/maps/dir//Cascal,+400+Castro+St,+Mountain+View,+CA+94041/@37.3912057,-122.0832874,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x808fb7339f1f74d3:0x900a28264d7b4a0b!2m2!1d-122.0810987!2d37.3912015!3e0">
-          <meta property="al:android:package" content="com.google.android.apps.maps">
+          <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, minimal-ui">
         </head>
+        <body>
+          <style>
+            html { height: 100% }
+            body { height: 100%, background-color: blue; }
+          </style>
+        </body>
       </html>`);
-    return;
-  }
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
 });
 
 server.listen(port);
